@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Психолог</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI-Психолог</h1>
+
+        <form method="POST">
+            <textarea name="user_text" placeholder="Введите ваш текст...">{{ user_text }}</textarea>
+            <button type="submit">Анализировать</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if emotion %}
+            <h2>Эмоция:</h2>
+            <p>{{ emotion }}</p>
+        {% endif %}
+
+        {% if advice %}
+            <h2>Совет:</h2>
+            <p>{{ advice }}</p>
+        {% endif %}
+
+        {% if music %}
+            <h2>Музыкальная рекомендация:</h2>
+            <p>{{ music }}</p>
+        {% endif %}
+
+        {% if thinking %}
+            <h2>Анализ мышления:</h2>
+            <p>{{ thinking }}</p>
+        {% endif %}
+
+        {% if graph_url %}
+            <h2>График эмоций:</h2>
+            <img src="{{ graph_url }}" alt="График эмоций">
+        {% endif %}
+    </div>
+</body>
+</html>
